@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPS - Business Intelligence</title>
+  <style>
+    :root {
+      --cor-principal: #2c3e50; /* Escuro Premium */
+      --cor-destaque: #2980b9;  /* Azul Tecnológico */
+      --cor-detalhe: #f1c40f;   /* Ouro */
+      --cor-sucesso: #2ecc71;   /* Verde Dinheiro */
+      --cor-erro: #e74c3c;      /* Vermelho Alerta */
+      --cor-fundo: #f4f7f6;     /* Cinza Claro */
+      --cor-texto: #333333;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
+    body { background-color: var(--cor-fundo); color: var(--cor-texto); line-height: 1.6; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+    /* Header */
+    header { background: var(--cor-principal); padding: 15px 0; border-bottom: 3px solid var(--cor-detalhe); text-align: center; }
+    .logo-box { display: inline-flex; align-items: center; gap: 10px; }
+    .logo-badge { background: var(--cor-detalhe); color: var(--cor-principal); padding: 5px 15px; border-radius: 5px; font-weight: 900; font-size: 24px; }
+    .logo-texto { color: white; font-size: 20px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* Capa (Hero) */
+    .hero { padding: 60px 0; text-align: center; background: white; border-bottom: 1px solid #eee; }
+    .hero h1 { font-size: 38px; color: var(--cor-principal); margin-bottom: 15px; font-weight: 800; padding: 0 10px; }
+    .hero p { font-size: 18px; color: #7f8c8d; max-width: 750px; margin: 0 auto 30px auto; padding: 0 15px; }
+    
+    /* Contador de Avaliações */
+    .contador-social { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 25px; font-size: 14px; color: #f39c12; font-weight: bold; }
+    .estrelas { font-size: 18px; }
+
+    /* Print do Sistema Mockup */
+    .media-container { max-width: 750px; margin: 0 auto 40px auto; background: var(--cor-principal); padding: 8px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-bottom: 5px solid var(--cor-detalhe); }
+    .media-box { width: 100%; border-radius: 6px; overflow: hidden; display: flex; background: #1a252f; }
+    .media-box img { width: 100%; height: auto; display: block; object-fit: cover; }
+
+    /* Botões */
+    .btn-compra { display: inline-block; background: var(--cor-sucesso); color: white; padding: 18px 40px; font-size: 20px; font-weight: bold; text-transform: uppercase; text-decoration: none; border-radius: 8px; box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3); transition: transform 0.2s, background 0.2s; text-align: center; }
+    .btn-compra:hover { transform: scale(1.02); background: #27ae60; }
+    
+    /* Seções Gerais */
+    .secao { padding: 70px 0; }
+    .secao-branca { background: white; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+    .secao-titulo { text-align: center; font-size: 28px; color: var(--cor-principal); margin-bottom: 45px; text-transform: uppercase; font-weight: 700; }
+    .secao-titulo::after { content: ''; display: block; width: 50px; height: 4px; background: var(--cor-detalhe); margin: 10px auto 0 auto; border-radius: 2px; }
+
+    /* Seção O Problema */
+    .problema-box { max-width: 800px; margin: 0 auto; background: #fff5f5; border-left: 5px solid var(--cor-erro); padding: 25px; border-radius: 8px; }
+    .problema-item { margin-bottom: 15px; font-size: 16px; color: #c0392b; display: flex; gap: 10px; }
+
+    /* Funcionalidades */
+    .grid-recursos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+    .card-recurso { background: white; padding: 30px; border-radius: 8px; border-top: 4px solid var(--cor-destaque); box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+    .card-recurso h3 { color: var(--cor-principal); margin-bottom: 12px; font-size: 19px; }
+    .card-recurso p { color: #666; font-size: 15px; }
+
+    /* Depoimentos */
+    .grid-depoimentos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 950px; margin: 0 auto; }
+    .card-depoimento { background: #f9fbfb; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #eaeaea; position: relative; }
+    .texto-depoimento { font-style: italic; color: #555; margin-bottom: 15px; font-size: 15px; }
+    .autor-depoimento { font-weight: bold; color: var(--cor-principal); font-size: 14px; display: flex; align-items: center; gap: 5px; }
+
+    /* FAQ (Accordion) */
+    .faq-container { max-width: 800px; margin: 0 auto; }
+    .faq-item { background: white; margin-bottom: 12px; border-radius: 6px; border: 1px solid #eaeaea; overflow: hidden; }
+    .faq-pergunta { padding: 18px 20px; background: #fdfdfd; font-weight: bold; color: var(--cor-principal); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-resposta { padding: 18px 20px; border-top: 1px solid #eee; color: #666; font-size: 15px; background: #fff; }
+
+    /* Preço e Oferta */
+    .oferta-container { max-width: 750px; margin: 0 auto; }
+    .oferta-box { background: var(--cor-principal); color: white; text-align: center; padding: 45px 20px; border-radius: 15px; border-top: 6px solid var(--cor-detalhe); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
+    .preco-antigo { text-decoration: line-through; opacity: 0.4; font-size: 20px; margin-bottom: 5px; }
+    .preco-atual { font-size: 54px; font-weight: 900; color: var(--cor-detalhe); margin-bottom: 25px; }
+
+    /* Rodapé */
+    footer { background: #1a252f; color: rgba(255,255,255,0.5); text-align: center; padding: 30px 20px; font-size: 13px; border-top: 1px solid #2c3e50; }
+    footer strong { color: var(--cor-detalhe); }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 28px; }
+      .hero p { font-size: 16px; }
+      .btn-compra { width: 100%; font-size: 18px; padding: 15px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-box">
+      <div class="logo-badge">GPS</div>
+      <div class="logo-texto" id="txtLogoSub">Business Intelligence</div>
+    </div>
+  </header>
+
+  <!-- CAPA (HERO) -->
+  <section class="hero">
+    <div class="container">
+      <div class="contador-social">
+        <span class="estrelas">★★★★★</span>
+        <span>+140 empresas e gestores utilizando</span>
+      </div>
+      <h1 id="txtTitulo">Carregando título...</h1>
+      <p id="txtSubtitulo">Carregando subtítulo...</p>
+      
+      <!-- IMAGEM PRINT DO SISTEMA -->
+      <div class="media-container">
+        <div class="media-box" id="midiaContainer">
+          <!-- A imagem será injetada aqui automaticamente pelo script -->
+        </div>
+      </div>
+
+      <a href="#" class="btn-compra btn-link-global">Quero Acesso Imediato</a>
+    </div>
+  </section>
+
+  <!-- O PROBLEMA -->
+  <section class="secao">
+    <div class="container">
+      <h2 class="secao-titulo">O Cenário Atual das Empresas</h2>
+      <div class="problema-box" id="containerProblemas"></div>
+    </div>
+  </section>
+
+  <!-- PRINCIPAIS FUNCIONALIDADES -->
+  <section class="secao secao-branca">
+    <div class="container">
+      <h2 class="secao-titulo">Principais Recursos do GPS</h2>
+      <div class="grid-recursos" id="containerRecursos"></div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS DE CLIENTES -->
+  <section class="secao">
+    <div class="container">
+      <h2 class="secao-titulo">Quem já usa aprova</h2>
+      <div class="grid-depoimentos" id="containerDepoimentos"></div>
+    </div>
+  </section>
+
+  <!-- PERGUNTAS FREQUENTES -->
+  <section class="secao secao-branca">
+    <div class="container">
+      <h2 class="secao-titulo">Perguntas Frequentes</h2>
+      <div class="faq-container" id="containerFAQ"></div>
+    </div>
+  </section>
+
+  <!-- PREÇO E OFERTA -->
+  <section class="secao" style="padding-bottom: 90px;">
+    <div class="container oferta-container">
+      <div class="oferta-box">
+        <h2 style="font-size: 24px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Acesso Imediato e Vitalício</h2>
+        <p style="opacity: 0.7; font-size: 14px; margin-bottom: 20px;">Adquira agora e receba o sistema automaticamente no seu e-mail.</p>
+        <p class="preco-antigo" id="txtPrecoAntigo">R$ 0,00</p>
+        <p class="preco-atual" id="txtPrecoAtual">R$ 0,00</p>
+        <div style="padding: 0 10px;">
+          <a href="#" class="btn-compra btn-link-global" style="background: var(--cor-detalhe); color: var(--cor-principal); box-shadow: 0 5px 15px rgba(241, 196, 15, 0.2);">Adquirir o GPS Business</a>
+        </div>
+        <p style="font-size: 12px; opacity: 0.6; margin-top: 20px;">Acesso liberado instantaneamente após a confirmação do pagamento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer>
+    Desenvolvido por <strong>Eng. Especialista Carlos Matheus Nobre</strong> | Instagram comercial: <a href="https://instagram.com/carlosmsnobre" target="_blank" style="color:var(--cor-detalhe); text-decoration:none; font-weight:bold;">@carlosmsnobre</a>
+    <span style="display:block; margin-top:8px; opacity:0.4; font-size:11px;">© 2026 Nobre Sistemas - Todos os direitos reservados.</span>
+  </footer>
+
+  <!-- ENGINE DE PERSONALIZAÇÃO CONFIGURÁVEL -->
+  <script>
+    // ==========================================
+    // ESTRUTURA DO PRODUTO (COLE SEUS LINKS AQUI)
+    // ==========================================
+    const CONFIG_SITE = {
+      nomeSistema: "Business Intelligence",
+      tituloCapa: "Chega de gerenciar sua empresa e seus projetos no escuro",
+      subtituloCapa: "Conheça o painel de controle financeiro definitivo para empresários e profissionais liberais. Projete custos em cascata para 12 meses, domine seus potes e controle sua margem de lucro real de forma automatizada.",
+      
+      // 1. LINK DE VENDA DIRETA: Substitua o link abaixo pela URL do seu checkout (Ex: Kiwify, Mercado Pago)
+      linkDestino: "https://seu-link-de-checkout-aqui.com", 
+      
+      // 2. LINK DO PRINT: Cole aqui o link da imagem do painel do seu GPS Business para aparecer na capa
+      urlImagemPainel: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80", // Imagem temporária (substitua pelo seu print)
+      
+      precoDe: "R$ 397,00",
+      precoPor: "R$ 197,00",
+
+      problemas: [
+        "Faturamento alto que desaparece no final do mês sem você saber para onde foi.",
+        "Dificuldade crônica para prever se a empresa estará no azul ou no vermelho nos próximos meses.",
+        "Misturar as finanças pessoais (Pro-labore) com os custos operacionais da estrutura.",
+        "Falta de clareza sobre qual é a Margem de Lucro Real de cada contrato ou serviço prestado."
+      ],
+
+      funcionalidades: [
+        { t: "Orçamento por Potes PJ", d: "Separação inteligente e automática das suas receitas em Custo Fixo, Variável, Marketing, Investimentos e Pro-labore." },
+        { t: "Lançamentos e Projeção em Cascata", d: "Insira despesas fixas ou parcelamentos uma única vez e o sistema projeta o impacto financeiro para os próximos 12 meses." },
+        { t: "Indicadores Avançados de BI", d: "Visualize instantaneamente a Margem de Lucro Líquido e a Eficiência Operacional através de cartões gráficos e intuitivos." },
+        { t: "Consolidação de Cartão de Crédito", d: "Card dinâmico que exibe a fatura estimada do mês e permite filtrar todas as saídas daquela modalidade com um único clique." }
+      ],
+
+      depoimentos: [
+        { texto: "O sistema mudou totalmente a forma como precifico meus projetos de engenharia. Consigo ver a margem real de sobra na hora.", autor: "Usuário do Sistema - Engenheiro" },
+        { texto: "A projeção em cascata me poupa horas de trabalho. Sei exatamente quanto tenho comprometido para os meses futuros.", autor: "Cliente PJ - Gestão de Portfólio" }
+      ],
+
+      faq: [
+        { p: "O sistema exige o pagamento de mensalidades?", r: "Não. O GPS Business funciona baseado em uma licença única e vitalícia. Ele roda diretamente dentro do seu ambiente seguro do Google Drive." },
+        { p: "Eu preciso entender de programação para utilizar?", r: "Absolutamente não. Toda a engenharia complexa roda por trás através do Apps Script. Para você, a interface é intuitiva, limpa e pronta para uso." },
+        { p: "Como recebo o acesso após a compra?", r: "Como o processo é integrado à plataforma de vendas, assim que o seu pagamento for aprovado, você receberá automaticamente as instruções de cópia e acesso direto no seu e-mail cadastrado." }
+      ]
+    };
+
+    // ==========================================
+    // CONSTRUTOR AUTOMÁTICO DO TEMPLATE
+    // ==========================================
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById('txtLogoSub').innerText = CONFIG_SITE.nomeSistema;
+      document.getElementById('txtTitulo').innerText = CONFIG_SITE.tituloCapa;
+      document.getElementById('txtSubtitulo').innerText = CONFIG_SITE.subtituloCapa;
+      document.getElementById('txtPrecoAntigo').innerText = CONFIG_SITE.precoDe;
+      document.getElementById('txtPrecoAtual').innerText = CONFIG_SITE.precoPor;
+      
+      document.querySelectorAll('.btn-link-global').forEach(el => el.href = CONFIG_SITE.linkDestino);
+
+      // Injeta o Print do Painel
+      const midiaBox = document.getElementById('midiaContainer');
+      if (CONFIG_SITE.urlImagemPainel) {
+        midiaBox.innerHTML = `<img src="${CONFIG_SITE.urlImagemPainel}" alt="Painel GPS Business Intelligence">`;
+      }
+
+      // Renderização da seção O Problema
+      const boxProblemas = document.getElementById('containerProblemas');
+      CONFIG_SITE.problemas.forEach(prob => {
+        boxProblemas.innerHTML += `<div class="problema-item"><span>❌</span><span>${prob}</span></div>`;
+      });
+
+      // Renderização das Funcionalidades
+      const boxRecursos = document.getElementById('containerRecursos');
+      CONFIG_SITE.funcionalidades.forEach(func => {
+        boxRecursos.innerHTML += `<div class="card-recurso"><h3>${func.t}</h3><p>${func.d}</p></div>`;
+      });
+
+      // Renderização dos Depoimentos
+      const boxDepoimentos = document.getElementById('containerDepoimentos');
+      CONFIG_SITE.depoimentos.forEach(dep => {
+        boxDepoimentos.innerHTML += `<div class="card-depoimento"><p class="texto-depoimento">"${dep.texto}"</p><div class="autor-depoimento"><span>👤</span><span>${dep.autor}</span></div></div>`;
+      });
+
+      // Renderização do FAQ
+      const boxFAQ = document.getElementById('containerFAQ');
+      CONFIG_SITE.faq.forEach(item => {
+        boxFAQ.innerHTML += `
+          <div class="faq-item">
+            <div class="faq-pergunta" onclick="const r = this.nextElementSibling; r.style.display = r.style.display === 'block' ? 'none' : 'block';">
+              <span>${item.p}</span><span>▼</span>
+            </div>
+            <div class="faq-resposta" style="display:none;">${item.r}</div>
+          </div>`;
+      });
+    });
+  </script>
+</body>
+</html>
