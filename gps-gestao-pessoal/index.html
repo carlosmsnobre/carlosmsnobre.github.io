@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPS Gestão Pessoal - Organização e Rotina</title>
+  <style>
+    :root {
+      --bg-principal: #090d16;    /* Escuro Profundo */
+      --bg-card: #111827;         /* Card Premium */
+      --neon-azul: #38bdf8;       /* Azul Foco */
+      --neon-ouro: #fbbf24;       /* Ouro Conquistas */
+      --neon-verde: #34d399;      /* Verde Economia */
+      --neon-alerta: #f87171;     /* Alerta de Desperdício */
+      --texto-claro: #ffffff;
+      --texto-mutado: #9ca3af;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', -apple-system, sans-serif; scroll-behavior: smooth; }
+    body { background-color: var(--bg-principal); color: var(--texto-claro); line-height: 1.6; overflow-x: hidden; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+    /* Header */
+    header { background: rgba(9, 13, 22, 0.85); backdrop-filter: blur(10px); padding: 20px 0; border-bottom: 1px solid rgba(56, 189, 248, 0.2); position: sticky; top: 0; z-index: 100; }
+    .logo-box { display: inline-flex; align-items: center; gap: 12px; }
+    .logo-badge { background: linear-gradient(135deg, var(--neon-ouro), #f59e0b); color: #000; padding: 6px 18px; border-radius: 6px; font-weight: 900; font-size: 26px; box-shadow: 0 0 15px rgba(251, 191, 36, 0.4); }
+    .logo-texto { font-size: 22px; font-weight: 800; letter-spacing: 2px; background: linear-gradient(to right, #fff, var(--neon-azul)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    /* Hero Section */
+    .hero { padding: 90px 0 60px 0; text-align: center; background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15) 0%, transparent 60%); }
+    .hero h1 { font-size: 46px; font-weight: 900; line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.5px; background: linear-gradient(135deg, #ffffff 30%, #bae6fd 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 20px; color: var(--texto-mutado); max-width: 800px; margin: 0 auto 40px auto; font-weight: 400; }
+
+    .contador-social { display: inline-flex; align-items: center; gap: 10px; background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.2); padding: 8px 20px; border-radius: 50px; margin-bottom: 30px; font-size: 14px; font-weight: 600; color: var(--neon-azul); }
+    .estrelas { color: var(--neon-ouro); text-shadow: 0 0 8px rgba(251, 191, 36, 0.6); }
+
+    /* Mockup Interface do Gestão Pessoal */
+    .media-container { max-width: 850px; margin: 0 auto 50px auto; background: linear-gradient(145deg, #1e293b, #0f172a); padding: 15px; border-radius: 16px; box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 0 40px rgba(56, 189, 248, 0.1); border: 1px solid rgba(255,255,255,0.08); }
+    .pessoal-dashboard { background: #020617; border-radius: 10px; padding: 25px; text-align: left; border: 1px solid #1e293b; }
+    .bi-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; padding-bottom: 15px; margin-bottom: 20px; }
+    .bi-title { font-size: 14px; font-weight: 700; color: var(--neon-azul); text-transform: uppercase; letter-spacing: 1px; }
+    .bi-status { width: 10px; height: 10px; background: var(--neon-ouro); border-radius: 50%; box-shadow: 0 0 10px var(--neon-ouro); }
+    
+    .bi-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 20px; }
+    .bi-card { background: var(--bg-card); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+    .bi-card-lbl { font-size: 11px; color: var(--texto-mutado); text-transform: uppercase; }
+    .bi-card-val { font-size: 20px; font-weight: 800; margin-top: 5px; }
+    
+    .bi-progress-section { background: var(--bg-card); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+    .bi-progress-bar { height: 8px; background: #1e293b; border-radius: 4px; overflow: hidden; margin: 8px 0 15px 0; }
+    .bi-progress-fill { height: 100%; background: linear-gradient(90deg, var(--neon-azul), var(--neon-ouro)); border-radius: 4px; width: 75%; }
+
+    /* Botão */
+    .btn-compra { display: inline-block; background: linear-gradient(135deg, #38bdf8 0%, #fbbf24 100%); color: #020617; padding: 22px 55px; font-size: 22px; font-weight: 800; text-transform: uppercase; text-decoration: none; border-radius: 12px; box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3); transition: all 0.3s; text-align: center; letter-spacing: 0.5px; }
+    .btn-compra:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 15px 40px rgba(56, 189, 248, 0.5); }
+    
+    /* Seções */
+    .secao { padding: 90px 0; position: relative; }
+    .secao-alternada { background: #0c111d; border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03); }
+    .secao-titulo { text-align: center; font-size: 34px; font-weight: 800; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 1px; }
+    .secao-titulo span { background: linear-gradient(to right, var(--neon-azul), var(--neon-ouro)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    /* Problemas */
+    .problema-box { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+    .problema-item { background: rgba(248, 113, 113, 0.03); border: 1px solid rgba(248, 113, 113, 0.15); padding: 25px; border-radius: 10px; display: flex; gap: 15px; align-items: flex-start; }
+    .problema-item span { color: var(--neon-alerta); font-size: 20px; font-weight: bold; }
+    .problema-item p { font-size: 16px; color: #e5e7eb; }
+
+    /* Recursos */
+    .grid-recursos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+    .card-recurso { background: var(--bg-card); padding: 35px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.04); transition: all 0.3s; }
+    .card-recurso:hover { transform: translateY(-5px); border-color: rgba(56, 189, 248, 0.4); }
+    .card-recurso h3 { color: #fff; margin-bottom: 15px; font-size: 21px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+    .card-recurso h3::before { content: '✦'; color: var(--neon-ouro); }
+    .card-recurso p { color: var(--texto-mutado); font-size: 15px; }
+
+    /* Depoimentos */
+    .grid-depoimentos { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
+    .card-depoimento { background: rgba(255,255,255,0.02); padding: 30px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.06); }
+    .texto-depoimento { font-style: italic; color: #e5e7eb; margin-bottom: 20px; font-size: 16px; }
+    .autor-depoimento { font-weight: bold; color: var(--neon-azul); font-size: 14px; text-transform: uppercase; }
+
+    /* FAQ */
+    .faq-container { max-width: 850px; margin: 0 auto; }
+    .faq-item { background: var(--bg-card); margin-bottom: 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); overflow: hidden; }
+    .faq-pergunta { padding: 22px 25px; font-weight: 700; font-size: 17px; color: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-resposta { padding: 0 25px 22px 25px; color: var(--texto-mutado); font-size: 15px; display: none; }
+
+    /* Oferta */
+    .oferta-container { max-width: 800px; margin: 0 auto; }
+    .oferta-box { background: radial-gradient(circle at top right, #0f172a 0%, #030712 100%); color: white; text-align: center; padding: 60px 40px; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.25); }
+    .preco-antigo { text-decoration: line-through; color: var(--neon-alerta); font-size: 22px; font-weight: 600; opacity: 0.7; margin-bottom: 5px; }
+    .preco-atual { font-size: 64px; font-weight: 900; color: var(--neon-ouro); margin-bottom: 30px; }
+
+    footer { background: #02040a; color: var(--texto-mutado); text-align: center; padding: 40px 20px; font-size: 14px; border-top: 1px solid #111827; }
+    footer strong { color: var(--neon-ouro); }
+    @media (max-width: 768px) { .hero h1 { font-size: 32px; } .btn-compra { width: 100%; font-size: 18px; } }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container" style="padding: 0 20px; display: flex; justify-content: center;">
+      <div class="logo-box">
+        <div class="logo-badge">GPS</div>
+        <div class="logo-texto">Gestão Pessoal</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="contador-social">
+        <span class="estrelas">★★★★★</span>
+        <span>Organização de Vida, Finanças e Rotinas Diárias</span>
+      </div>
+      <h1 id="txtTitulo">Carregando mapa de rotinas...</h1>
+      <p id="txtSubtitulo">Carregando painel pessoal...</p>
+      
+      <div class="media-container">
+        <div class="pessoal-dashboard">
+          <div class="bi-header">
+            <div class="bi-title">GPS Gestão Pessoal v2.5</div>
+            <div class="bi-status"></div>
+          </div>
+          <div class="bi-cards-grid">
+            <div class="bi-card">
+              <div class="bi-card-lbl">Economia Mensal Est.</div>
+              <div class="bi-card-val" style="color: var(--neon-verde);">25%</div>
+            </div>
+            <div class="bi-card">
+              <div class="bi-card-lbl">Metas Concluídas</div>
+              <div class="bi-card-val" style="color: var(--neon-azul);">12 / 15</div>
+            </div>
+            <div class="bi-card">
+              <div class="bi-card-lbl">Score de Produtividade</div>
+              <div class="bi-card-val" style="color: var(--neon-ouro);">88%</div>
+            </div>
+          </div>
+          <div class="bi-progress-section">
+            <div style="display:flex; justify-content:space-between; font-size:12px;">
+              <span style="color: var(--texto-claro); font-weight:700;">Progresso dos Objetivos Anuais</span>
+              <span style="color: var(--neon-ouro);">Em Ritmo Acelerado</span>
+            </div>
+            <div class="bi-progress-bar">
+              <div class="bi-progress-fill"></div>
+            </div>
+            <div style="font-size:11px; color: var(--texto-mutado);">Divisão baseada na metodologia de potes pessoais de patrimônio.</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#" class="btn-compra btn-link-global">Quero Organizar Minha Vida</a>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="container">
+      <h2 class="secao-titulo">Sua Rotina Sofre com <span>Estes Problemas</span>?</h2>
+      <div class="problema-box" id="containerProblemas"></div>
+    </div>
+  </section>
+
+  <section class="secao secao-alternada">
+    <div class="container">
+      <h2 class="secao-titulo">Central de Controle da <span>Sua Vida</span></h2>
+      <div class="grid-recursos" id="containerRecursos"></div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="container">
+      <h2 class="secao-titulo">Depoimentos de <span>Quem Já Mudou de Vida</span></h2>
+      <div class="grid-depoimentos" id="containerDepoimentos"></div>
+    </div>
+  </section>
+
+  <section class="secao secao-alternada">
+    <div class="container">
+      <h2 class="secao-titulo">Esclarecimentos <span>Gerais</span></h2>
+      <div class="faq-container" id="containerFAQ"></div>
+    </div>
+  </section>
+
+  <section class="secao" style="padding-bottom: 100px;">
+    <div class="container oferta-container">
+      <div class="oferta-box">
+        <h2 style="font-size: 28px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; font-weight:900;">Domine Sua Rotina e Suas Metas</h2>
+        <p style="color: var(--texto-mutado); font-size: 16px; margin-bottom: 30px;">Pagamento único, acesso vitalício sem nenhuma mensalidade.</p>
+        <p class="preco-antigo" id="txtPrecoAntigo">R$ 0,00</p>
+        <p class="preco-atual" id="txtPrecoAtual">R$ 0,00</p>
+        <div style="padding: 0 10px;">
+          <a href="#" class="btn-compra btn-link-global" style="background: linear-gradient(135deg, var(--neon-ouro) 0%, #f59e0b 100%); color: #000; box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);">Garantir Acesso ao GPS Pessoal</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Desenvolvido por <strong>Eng. Especialista Carlos Matheus Nobre</strong> | Instagram comercial: <a href="https://instagram.com/carlosmsnobre" target="_blank" style="color:var(--neon-ouro); text-decoration:none; font-weight:700;">@carlosmsnobre</a>
+  </footer>
+
+  <script>
+    const CONFIG_SITE = {
+      nomeSistema: "Gestão Pessoal",
+      tituloCapa: "Elimine a Ansiedade de uma Vida Desorganizada e Assuma o Controle Absoluto",
+      subtituloCapa: "Centralize suas finanças diárias, planeje suas metas de longo prazo e monte uma rotina produtiva inabalável. Tudo integrado de forma simples e visual dentro do seu ecossistema.",
+      linkDestino: "https://seu-link-de-checkout-pessoal.com", 
+      precoDe: "R$ 197,00",
+      precoPor: "R$ 97,00",
+
+      problemas: [
+        "Chegar ao fim do mês sem saber onde gastou o dinheiro ou quanto sobrou para os seus sonhos.",
+        "Sensação constante de cansaço e desorganização, sem conseguir manter uma rotina produtiva diária.",
+        "Definir metas de ano novo que acabam esquecidas em um bloco de notas em menos de duas semanas.",
+        "Falta de um mapa visual simples sobre o seu progresso patrimonial e evolução pessoal."
+      ],
+
+      funcionalidades: [
+        { t: "Potes de Patrimônio Pessoal", d: "Distribuição simples do seu salário e rendas em categorias lógicas: Gastos Fixos, Lazer, Investimentos e Conquistas Futuras." },
+        { t: "Rastreador de Hábitos e Produtividade", d: "Painel dinâmico para marcar suas tarefas diárias, exercícios e metas de leitura, gerando um Score de Evolução." },
+        { t: "Planejador Predictivo de Objetivos", d: "Determine o valor de um sonho (como uma viagem ou uma compra) e o sistema calcula exatamente o quanto poupar mês a mês." },
+        { t: "Central de Lançamentos Rápidos", d: "Interface otimizada para celular para você registrar despesas em menos de 5 segundos, sem burocracias." }
+      ],
+
+      depoimentos: [
+        { texto: "Finalmente consegui criar o hábito de guardar dinheiro e planejar minhas viagens. O painel visual facilita demais o dia a dia.", autor: "Usuário do GPS - Foco e Organização" },
+        { texto: "O score de produtividade me ajuda a manter focado nas minhas leituras e treinos. É o fim da procrastinação.", autor: "Membro da Comunidade GPS Pessoal" }
+      ],
+
+      faq: [
+        { p: "Preciso pagar assinatura mensal?", r: "Não. O GPS Gestão Pessoal é seu para sempre com um pagamento único. Roda diretamente na sua conta segura do Google Drive." },
+        { p: "Funciona bem no celular?", r: "Sim! Toda a interface de controle e lançamentos foi desenhada para se adaptar perfeitamente à tela do seu smartphone." },
+        { p: "Como recebo o acesso?", r: "Assim que a compra for aprovada pela plataforma, o link para criar a sua cópia e o tutorial em vídeo chegam automaticamente no seu e-mail." }
+      ]
+    };
+
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById('txtTitulo').innerText = CONFIG_SITE.tituloCapa;
+      document.getElementById('txtSubtitulo').innerText = CONFIG_SITE.subtituloCapa;
+      document.getElementById('txtPrecoAntigo').innerText = CONFIG_SITE.precoDe;
+      document.getElementById('txtPrecoAtual').innerText = CONFIG_SITE.precoPor;
+      
+      document.querySelectorAll('.btn-link-global').forEach(el => el.href = CONFIG_SITE.linkDestino);
+
+      const boxProblemas = document.getElementById('containerProblemas');
+      CONFIG_SITE.problemas.forEach(prob => {
+        boxProblemas.innerHTML += `<div class="problema-item"><span>✕</span><p>${prob}</p></div>`;
+      });
+
+      const boxRecursos = document.getElementById('containerRecursos');
+      CONFIG_SITE.funcionalidades.forEach(func => {
+        boxRecursos.innerHTML += `<div class="card-recurso"><h3>${func.t}</h3><p>${func.d}</p></div>`;
+      });
+
+      const boxDepoimentos = document.getElementById('containerDepoimentos');
+      CONFIG_SITE.depoimentos.forEach(dep => {
+        boxDepoimentos.innerHTML += `<div class="card-depoimento"><p class="texto-depoimento">"${dep.texto}"</p><div class="autor-depoimento"><span>✦</span><span>${dep.autor}</span></div></div>`;
+      });
+
+      const boxFAQ = document.getElementById('containerFAQ');
+      CONFIG_SITE.faq.forEach(item => {
+        boxFAQ.innerHTML += `
+          <div class="faq-item">
+            <div class="faq-pergunta" onclick="const r = this.nextElementSibling; r.style.display = r.style.display === 'block' ? 'none' : 'block';">
+              <span>${item.p}</span><span style="color:var(--neon-azul)">▼</span>
+            </div>
+            <div class="faq-resposta">${item.r}</div>
+          </div>`;
+      });
+    });
+  </script>
+</body>
+</html>
