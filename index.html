@@ -2,13 +2,102 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=https://carlosmsnobre.github.io/gps-business/">
-  <title>Nobre Sistemas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nobre Sistemas - Inteligência e Gestão</title>
   <style>
-    body { background-color: #0b0f19; color: #8b9bb4; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    :root {
+      --bg-principal: #0b0f19;
+      --bg-card: #131a2c;
+      --neon-azul: #00d2ff;
+      --neon-ouro: #f1c40f;
+      --texto-claro: #ffffff;
+      --texto-mutado: #8b9bb4;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', -apple-system, sans-serif; }
+    body { background-color: var(--bg-principal); color: var(--texto-claro); min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; overflow-x: hidden; }
+
+    .container { max-width: 1000px; margin: auto; padding: 40px 20px; text-align: center; width: 100%; }
+
+    /* Marca / Logo */
+    .marca-box { margin-bottom: 40px; }
+    .logo-badge { display: inline-block; background: linear-gradient(135deg, var(--neon-ouro), #d4af37); color: #000; padding: 6px 20px; border-radius: 6px; font-weight: 900; font-size: 28px; box-shadow: 0 0 20px rgba(241, 196, 15, 0.3); margin-bottom: 15px; }
+    .marca-titulo { font-size: 24px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; background: linear-gradient(to right, #fff, var(--neon-azul)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .marca-subtitulo { color: var(--texto-mutado); font-size: 16px; margin-top: 8px; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+    /* Grid de Escolha */
+    .grid-escolha { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
+    
+    .opção-card { background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05); padding: 45px 30px; border-radius: 16px; text-decoration: none; color: #fff; display: flex; flex-direction: column; justify-content: space-between; align-items: center; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; }
+    
+    /* Efeitos de Hover Individuais */
+    .opção-card.business:hover { transform: translateY(-5px); border-color: var(--neon-azul); box-shadow: 0 15px 40px rgba(0, 210, 255, 0.15), 0 0 20px rgba(0, 210, 255, 0.1); }
+    .opção-card.pessoal:hover { transform: translateY(-5px); border-color: var(--neon-ouro); box-shadow: 0 15px 40px rgba(241, 196, 15, 0.15), 0 0 20px rgba(241, 196, 15, 0.1); }
+
+    .card-icone { font-size: 40px; margin-bottom: 20px; }
+    .opção-card.business .card-icone { color: var(--neon-azul); text-shadow: 0 0 10px rgba(0, 210, 255, 0.3); }
+    .opção-card.pessoal .card-icone { color: var(--neon-ouro); text-shadow: 0 0 10px rgba(241, 196, 15, 0.3); }
+
+    .card-titulo { font-size: 22px; font-weight: 800; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .card-desc { color: var(--texto-mutado); font-size: 15px; margin-bottom: 30px; line-height: 1.5; }
+
+    /* Botões Internos */
+    .card-btn { width: 100%; padding: 14px; font-weight: 700; text-transform: uppercase; border-radius: 8px; font-size: 14px; letter-spacing: 0.5px; transition: all 0.2s; }
+    .business .card-btn { background: rgba(0, 210, 255, 0.1); color: var(--neon-azul); border: 1px solid rgba(0, 210, 255, 0.3); }
+    .pessoal .card-btn { background: rgba(241, 196, 15, 0.1); color: var(--neon-ouro); border: 1px solid rgba(241, 196, 15, 0.3); }
+
+    .business:hover .card-btn { background: var(--neon-azul); color: #000; font-weight: 800; box-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
+    .pessoal:hover .card-btn { background: var(--neon-ouro); color: #000; font-weight: 800; box-shadow: 0 0 15px rgba(241, 196, 15, 0.4); }
+
+    /* Rodapé */
+    footer { background: #060910; color: var(--texto-mutado); text-align: center; padding: 25px 20px; font-size: 13px; border-top: 1px solid #121824; width: 100%; }
+
+    @media (max-width: 600px) {
+      .grid-escolha { grid-template-columns: 1fr; }
+      .container { padding: 20px; }
+    }
   </style>
 </head>
 <body>
-  <div>Carregando ecossistema Nobre Sistemas...</div>
+
+  <div class="container">
+    <!-- MARCA CENTRAL -->
+    <div class="marca-box">
+      <div class="logo-badge">NOBRE</div>
+      <div class="marca-titulo">Nobre Sistemas</div>
+      <div class="marca-subtitulo">Selecione a infraestrutura ou ecossistema inteligente que deseja acessar:</div>
+    </div>
+
+    <!-- CARDS DE SELEÇÃO -->
+    <div class="grid-escolha">
+      
+      <!-- OPÇÃO BUSINESS -->
+      <a href="https://carlosmsnobre.github.io/gps-business/" class="opção-card business">
+        <div>
+          <div class="card-icone">💼</div>
+          <div class="card-titulo">GPS Business</div>
+          <p class="card-desc">Inteligência de negócios corporativa, potes financeiros PJ, custos em cascata predictiva e dashboards de margem real para empresas.</p>
+        </div>
+        <div class="card-btn">Acessar Módulo PJ</div>
+      </a>
+
+      <!-- OPÇÃO PESSOAL -->
+      <a href="https://carlosmsnobre.github.io/gps-gestao-pessoal/" class="opção-card pessoal">
+        <div>
+          <div class="card-icone">👤</div>
+          <div class="card-titulo">GPS Pessoal</div>
+          <p class="card-desc">Organização de rotina diária, controle financeiro de pessoa física, rastreador de hábitos, produtividade e metas patrimoniais.</p>
+        </div>
+        <div class="card-btn">Acessar Módulo PF</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Nobre Sistemas — Ecossistema de Inteligência Corporativa e de Processos.
+  </footer>
+
 </body>
 </html>
