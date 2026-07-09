@@ -36,23 +36,10 @@
     .contador-social { display: inline-flex; align-items: center; gap: 10px; background: rgba(0, 210, 255, 0.05); border: 1px solid rgba(0, 210, 255, 0.2); padding: 8px 20px; border-radius: 50px; margin-bottom: 30px; font-size: 14px; font-weight: 600; color: var(--neon-azul); box-shadow: 0 0 20px rgba(0, 210, 255, 0.05); }
     .estrelas { color: var(--neon-ouro); text-shadow: 0 0 8px rgba(241, 196, 15, 0.6); }
 
-    /* INTERFACE MOCKUP INTERATIVO */
-    .media-container { max-width: 850px; margin: 0 auto 50px auto; background: linear-gradient(145deg, #1e2942, #111726); padding: 15px; border-radius: 16px; box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 0 40px rgba(0, 210, 255, 0.1); border: 1px solid rgba(255,255,255,0.08); }
-    
-    /* Painel simulado em CSS do seu BI */
-    .bi-dashboard { background: #080c14; border-radius: 10px; padding: 25px; text-align: left; border: 1px solid #162238; }
-    .bi-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #162238; padding-bottom: 15px; margin-bottom: 20px; }
-    .bi-title { font-size: 14px; font-weight: 700; color: var(--neon-azul); text-transform: uppercase; letter-spacing: 1px; }
-    .bi-status { width: 10px; height: 10px; background: var(--neon-verde); border-radius: 50%; box-shadow: 0 0 10px var(--neon-verde); }
-    
-    .bi-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 20px; }
-    .bi-card { background: var(--bg-card); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
-    .bi-card-lbl { font-size: 11px; color: var(--texto-mutado); text-transform: uppercase; }
-    .bi-card-val { font-size: 20px; font-weight: 800; margin-top: 5px; }
-    
-    .bi-progress-section { background: var(--bg-card); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
-    .bi-progress-bar { height: 8px; background: #1c263b; border-radius: 4px; overflow: hidden; margin: 8px 0 15px 0; }
-    .bi-progress-fill { height: 100%; background: linear-gradient(90deg, var(--neon-azul), var(--neon-verde)); border-radius: 4px; width: 84%; }
+    /* RECIPIENTE DE VÍDEO PROFISSIONAL RESPONSIVO */
+    .media-container { max-width: 850px; margin: 0 auto 50px auto; background: linear-gradient(145deg, #1e2942, #111726); padding: 12px; border-radius: 16px; box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 0 40px rgba(0, 210, 255, 0.15); border: 1px solid rgba(0, 210, 255, 0.25); }
+    .video-wrapper { position: relative; padding-bottom: 56.25%; /* Proporção 16:9 Cinema */ height: 0; overflow: hidden; border-radius: 10px; background: #000; }
+    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
     /* Botão de Compra Cyber Giga */
     .btn-compra { display: inline-block; background: linear-gradient(135deg, #00ff87 0%, #60efff 100%); color: #040814; padding: 22px 55px; font-size: 22px; font-weight: 800; text-transform: uppercase; text-decoration: none; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 255, 135, 0.3); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-align: center; letter-spacing: 0.5px; }
@@ -71,7 +58,7 @@
     .problema-item span:first-child { color: var(--neon-alerta); font-size: 20px; font-weight: bold; }
     .problema-item p { font-size: 16px; color: #e2e8f0; }
 
-    /* Recursos Grid Fluido e Tecnológico */
+    /* Recursos Grid Fluido */
     .grid-recursos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
     .card-recurso { background: var(--bg-card); padding: 35px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.04); position: relative; overflow: hidden; transition: all 0.3s; }
     .card-recurso:hover { transform: translateY(-5px); border-color: rgba(0, 210, 255, 0.4); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.1); }
@@ -79,7 +66,7 @@
     .card-recurso h3::before { content: '■'; color: var(--neon-azul); font-size: 14px; }
     .card-recurso p { color: var(--texto-mutado); font-size: 15px; }
 
-    /* Depoimentos Cards Espelhados */
+    /* Depoimentos */
     .grid-depoimentos { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
     .card-depoimento { background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%); padding: 30px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.06); position: relative; }
     .texto-depoimento { font-style: italic; color: #cbd5e1; margin-bottom: 20px; font-size: 16px; position: relative; z-index: 2; }
@@ -92,7 +79,7 @@
     .faq-pergunta { padding: 22px 25px; font-weight: 700; font-size: 17px; color: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
     .faq-resposta { padding: 0 25px 22px 25px; color: var(--texto-mutado); font-size: 15px; display: none; }
 
-    /* Caixa Corporativa de Oferta Matadora */
+    /* Oferta Matadora */
     .oferta-container { max-width: 800px; margin: 0 auto; }
     .oferta-box { background: radial-gradient(circle at top right, #17223b 0%, #0d1322 100%); color: white; text-align: center; padding: 60px 40px; border-radius: 20px; border: 1px solid rgba(0, 210, 255, 0.25); box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(0, 210, 255, 0.05); }
     .preco-antigo { text-decoration: line-through; color: var(--neon-alerta); font-size: 22px; font-weight: 600; opacity: 0.7; margin-bottom: 5px; }
@@ -128,37 +115,11 @@
       <h1 id="txtTitulo">Carregando engenharia de vendas...</h1>
       <p id="txtSubtitulo">Carregando infraestrutura corporativa...</p>
       
-      <!-- INTERFACE DE BI SIMULADA EM CSS -->
+      <!-- RECIPIENTE DO VÍDEO DO SISTEMA -->
       <div class="media-container">
-        <div class="bi-dashboard">
-          <div class="bi-header">
-            <div class="bi-title">GPS Business Intelligence v4.2</div>
-            <div class="bi-status"></div>
-          </div>
-          <div class="bi-cards-grid">
-            <div class="bi-card">
-              <div class="bi-card-lbl">Margem de Lucro Real</div>
-              <div class="bi-card-val" style="color: var(--neon-verde);">38.4%</div>
-            </div>
-            <div class="bi-card">
-              <div class="bi-card-lbl">Eficiência de Caixa</div>
-              <div class="bi-card-val" style="color: var(--neon-azul);">91.2%</div>
-            </div>
-            <div class="bi-card">
-              <div class="bi-card-lbl">Fatura Estimada (Mês)</div>
-              <div class="bi-card-val" style="color: var(--neon-ouro);">R$ 4.218,00</div>
-            </div>
-          </div>
-          <div class="bi-progress-section">
-            <div style="display:flex; justify-content:space-between; font-size:12px;">
-              <span style="color: var(--texto-claro); font-weight:700;">Saúde Operacional dos Projetos</span>
-              <span style="color: var(--neon-verde);">Excelente</span>
-            </div>
-            <div class="bi-progress-bar">
-              <div class="bi-progress-fill"></div>
-            </div>
-            <div style="font-size:11px; color: var(--texto-mutado);">Distribuição inteligente por Centros de Custo (Potes Dinâmicos).</div>
-          </div>
+        <div class="video-wrapper">
+          <!-- Substitua o ID 'dQw4w9WgXcQ' abaixo pelo ID do seu vídeo gravado quando estiver pronto -->
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
 
@@ -227,9 +188,7 @@
       tituloCapa: "Transforme a Gestão da Sua Empresa em um Painel de Controle de Alto Nível",
       subtituloCapa: "Monitore sua margem de lucro real em segundos, projete despesas em cascata automatizada para os próximos 12 meses e blinde seu caixa por potes estratégicos. A clareza de um software de BI robusto, direto no seu Google Drive, sem mensalidades e sem a complexidade dos ERPs tradicionais.",
       
-      // CONFIGURAÇÃO DE LINKS: Substitua pela sua URL final de vendas (Ex: Kiwify) quando quiser
       linkDestino: "https://seu-link-de-checkout-aqui.com", 
-      
       precoDe: "R$ 497,00",
       precoPor: "R$ 197,00",
 
@@ -241,9 +200,9 @@
       ],
 
       funcionalidades: [
-        { t: "Orçamento Estratégico por Potes PJ", d: "Distribuição matemática automatizada do faturamento bruto direto em Potes Financeiros estruturados (Custos Fixos, Variables, Investimentos, Marketing e Pro-labore)." },
+        { t: "Orçamento Estratégico por Potes PJ", d: "Distribuição matemática automatizada do faturamento bruto direto em Potes Financeiros estruturados (Custos Fixos, Variáveis, Investimentos, Marketing e Pro-labore)." },
         { t: "Lançamento e Projeção Predictiva em Cascata", d: "Uma única inserção de custo fixo ou parcelamento alimenta a matriz inteligente corporativa e projeta o impacto exato e a calibração de caixa para os próximos 12 meses." },
-        { t: "Painel de Métradas Avançadas e KPIs de BI", d: "Interface gráfica com indicadores em tempo real para visualizar instantaneamente a Margem de Lucro Líquido Real e a Eficiência Operacional através de cartões visuais." },
+        { t: "Painel de Métricas Avançadas e KPIs de BI", d: "Interface gráfica com indicadores em tempo real para visualizar instantaneamente a Margem de Lucro Líquido Real e a Eficiência Operacional através de cartões visuais." },
         { t: "Consolidação e Filtro Dinâmico de Cartão", d: "Card centralizador que exibe a fatura estimada do mês atual e permite filtrar de forma dinâmica todas as saídas daquela modalidade com um clique." }
       ],
 
@@ -255,11 +214,10 @@
       faq: [
         { p: "Este sistema exige o pagamento de mensalidades recorrentes?", r: "Não. O GPS Business opera sob um modelo de licenciamento de pagamento único e acesso vitalício. O sistema é seu e roda direto na segurança da sua nuvem do Google Drive através de automações em Google Apps Script." },
         { p: "Preciso ter conhecimento prévio em programação ou BI?", r: "De forma alguma. Toda a lógica computacional complexa e algoritmos de automação foram programados nativamente em Apps Script por trás da interface. Para você, o uso é totalmente visual, limpo e direto." },
-        { p: "Como funciona a entrega e o suporte?", r: "A liberação é totalmente automatizada pela plataforma de vendas. Assim que o pagamento for liquidado, você receberá instantaneamente um e-mail com o link exclusivo para gerar a sua cópia functional imediata." }
+        { p: "Como funciona a entrega e o suporte?", r: "A liberação é totalmente automatizada pela plataforma de vendas. Assim que o pagamento for liquidado, você receberá instantaneamente um e-mail com o link exclusivo para gerar a sua cópia funcional imediata." }
       ]
     };
 
-    // CONSTRUTOR AUTOMÁTICO DO SITE
     document.addEventListener("DOMContentLoaded", function() {
       document.getElementById('txtLogoSub').innerText = CONFIG_SITE.nomeSistema;
       document.getElementById('txtTitulo').innerText = CONFIG_SITE.tituloCapa;
