@@ -36,7 +36,7 @@
     .contador-social { display: inline-flex; align-items: center; gap: 10px; background: rgba(0, 210, 255, 0.05); border: 1px solid rgba(0, 210, 255, 0.2); padding: 8px 20px; border-radius: 50px; margin-bottom: 30px; font-size: 14px; font-weight: 600; color: var(--neon-azul); box-shadow: 0 0 20px rgba(0, 210, 255, 0.05); }
     .estrelas { color: var(--neon-ouro); text-shadow: 0 0 8px rgba(241, 196, 15, 0.6); }
 
-    /* INTERFACE MOCKUP INTERATIVO (O GRANDE DIFERENCIAL VISUAL) */
+    /* INTERFACE MOCKUP INTERATIVO */
     .media-container { max-width: 850px; margin: 0 auto 50px auto; background: linear-gradient(145deg, #1e2942, #111726); padding: 15px; border-radius: 16px; box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 0 40px rgba(0, 210, 255, 0.1); border: 1px solid rgba(255,255,255,0.08); }
     
     /* Painel simulado em CSS do seu BI */
@@ -132,7 +132,7 @@
       <h1 id="txtTitulo">Carregando engenharia de vendas...</h1>
       <p id="txtSubtitulo">Carregando infraestrutura corporativa...</p>
       
-      <!-- INTERFACE DE BI SIMULADA EM CSS (EXIBIÇÃO ROBUSTA) -->
+      <!-- INTERFACE DE BI SIMULADA EM CSS -->
       <div class="media-container">
         <div class="bi-dashboard">
           <div class="bi-header">
@@ -231,7 +231,7 @@
       tituloCapa: "Assuma a Engenharia Financeira da Sua Empresa com um Painel de BI Definitivo",
       subtituloCapa: "Monitore faturamento real, projete despesas em cascata automatizada para os próximos 12 meses e domine a blindagem de caixa por potes estratégicos. Esqueça sistemas lentos ou planilhas confusas.",
       
-      // CONFIGURAÇÃO DE LINKS: Substitua pela sua URL final de vendas quando quiser
+      // CONFIGURAÇÃO DE LINKS: Substitua pela sua URL final de vendas (Ex: Kiwify) quando quiser
       linkDestino: "https://seu-link-de-checkout-aqui.com", 
       
       precoDe: "R$ 497,00",
@@ -245,10 +245,10 @@
       ],
 
       funcionalidades: [
-        { t: "Orçamento Estratégico por Potes", d: "Distribuição matemática e automática do seu faturamento bruto direto em Potes Financeiros estruturados (Custos Fixos, Variáveis, Marketing e Pro-labore)." },
-        { t: "Lançamento em Cascata Predictiva", d: "Uma única inserção de custo fixo ou parcelamento alimenta a matriz preditiva inteligente e calcula o impacto exato nos próximos 12 meses." },
-        { t: "Painel de Métricas e KPIs Rápidos", d: "Interface em tempo real com cartões dinâmicos de Margem de Lucro Real e barras de progresso para análise instantânea de Saúde Financeira." },
-        { t: "Filtro de Faturas e Calibragem", d: "Mapeamento centralizado de despesas de cartão com filtragem instantânea por modalidade e botão 'Calibrar Caixa' para conciliação veloz." }
+        { t: "Orçamento Estratégico por Potes PJ", d: "Distribuição matemática automatizada do faturamento bruto direto em Potes Financeiros estruturados (Custos Fixos, Variables, Investimentos, Marketing e Pro-labore)." },
+        { t: "Lançamento e Projeção Predictiva em Cascata", d: "Uma única inserção de custo fixo ou parcelamento alimenta a matriz inteligente corporativa e projeta o impacto exato e a calibração de caixa para os próximos 12 meses." },
+        { t: "Painel de Métricas Avançadas e KPIs de BI", d: "Interface gráfica com indicadores em tempo real para visualizar instantaneamente a Margem de Lucro Líquido Real e a Eficiência Operacional através de cartões visuais." },
+        { t: "Consolidação e Filtro Dinâmico de Cartão", d: "Card centralizador que exibe a fatura estimada do mês atual e permite filtrar de forma dinâmica todas as saídas daquela modalidade com um clique." }
       ],
 
       depoimentos: [
@@ -257,9 +257,9 @@
       ],
 
       faq: [
-        { p: "Este sistema exige o pagamento de mensalidades recorrentes?", r: "Não. O GPS Business opera sob um modelo de licenciamento de pagamento único e acesso vitalício. O sistema é seu e roda direto na segurança da sua nuvem do Google Drive." },
+        { p: "Este sistema exige o pagamento de mensalidades recorrentes?", r: "Não. O GPS Business opera sob um modelo de licenciamento de pagamento único e acesso vitalício. O sistema é seu e roda direto na segurança da sua nuvem do Google Drive através de automações em Google Apps Script." },
         { p: "Preciso ter conhecimento prévio em programação ou BI?", r: "De forma alguma. Toda a lógica computacional complexa e algoritmos de automação foram programados nativamente em Apps Script por trás da interface. Para você, o uso é totalmente visual, limpo e direto." },
-        { p: "Como funciona a entrega e o suporte?", r: "A liberação é totalmente automatizada pela plataforma de vendas. Assim que o pagamento for liquidado, você receberá instantaneamente um e-mail com o link exclusivo para gerar a sua cópia funcional imediata." }
+        { p: "Como funciona a entrega e o suporte?", r: "A liberação é totalmente automatizada pela plataforma de vendas. Assim que o pagamento for liquidado, você receberá instantaneamente um e-mail com o link exclusivo para gerar a sua cópia functional imediata." }
       ]
     };
 
@@ -274,21 +274,25 @@
       document.querySelectorAll('.btn-link-global').forEach(el => el.href = CONFIG_SITE.linkDestino);
 
       const boxProblemas = document.getElementById('containerProblemas');
+      boxProblemas.innerHTML = '';
       CONFIG_SITE.problemas.forEach(prob => {
         boxProblemas.innerHTML += `<div class="problema-item"><span>✕</span><p>${prob}</p></div>`;
       });
 
       const boxRecursos = document.getElementById('containerRecursos');
+      boxRecursos.innerHTML = '';
       CONFIG_SITE.funcionalidades.forEach(func => {
         boxRecursos.innerHTML += `<div class="card-recurso"><h3>${func.t}</h3><p>${func.d}</p></div>`;
       });
 
       const boxDepoimentos = document.getElementById('containerDepoimentos');
+      boxDepoimentos.innerHTML = '';
       CONFIG_SITE.depoimentos.forEach(dep => {
         boxDepoimentos.innerHTML += `<div class="card-depoimento"><p class="texto-depoimento">"${dep.texto}"</p><div class="autor-depoimento"><span>✦</span><span>${dep.autor}</span></div></div>`;
       });
 
       const boxFAQ = document.getElementById('containerFAQ');
+      boxFAQ.innerHTML = '';
       CONFIG_SITE.faq.forEach(item => {
         boxFAQ.innerHTML += `
           <div class="faq-item">
