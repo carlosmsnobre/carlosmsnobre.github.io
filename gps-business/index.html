@@ -10,78 +10,76 @@
       --bg-card: #131a2c;
       --neon-azul: #00d2ff;
       --neon-ouro: #f1c40f;
-      --neon-verde: #00ff87;
       --neon-alerta: #ff4757;
       --texto-claro: #ffffff;
       --texto-mutado: #8b9bb4;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', -apple-system, sans-serif; scroll-behavior: smooth; }
-    body { background-color: var(--bg-principal); color: var(--texto-claro); line-height: 1.6; overflow-x: hidden; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
+    body { background-color: var(--bg-principal); color: var(--texto-claro); line-height: 1.5; overflow-x: hidden; }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 10px 20px; }
 
-    header { background: rgba(11, 15, 25, 0.85); backdrop-filter: blur(10px); padding: 20px 0; border-bottom: 1px solid rgba(0, 210, 255, 0.2); position: sticky; top: 0; z-index: 100; }
-    .logo-box { display: inline-flex; align-items: center; gap: 12px; }
-    .logo-badge { background: linear-gradient(135deg, var(--neon-ouro), #d4af37); color: #000; padding: 6px 18px; border-radius: 6px; font-weight: 900; font-size: 26px; box-shadow: 0 0 15px rgba(241, 196, 15, 0.4); }
-    .logo-texto { font-size: 22px; font-weight: 800; letter-spacing: 2px; background: linear-gradient(to right, #fff, var(--neon-azul)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    /* Header Compacto */
+    header { background: rgba(11, 15, 25, 0.9); backdrop-filter: blur(10px); padding: 15px 0; border-bottom: 1px solid rgba(0, 210, 255, 0.2); position: sticky; top: 0; z-index: 100; }
+    .logo-box { display: inline-flex; align-items: center; gap: 10px; }
+    .logo-badge { background: linear-gradient(135deg, var(--neon-ouro), #d4af37); color: #000; padding: 4px 12px; border-radius: 4px; font-weight: 900; font-size: 20px; }
+    .logo-texto { font-size: 18px; font-weight: 800; letter-spacing: 1px; background: linear-gradient(to right, #fff, var(--neon-azul)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-    .hero { padding: 90px 0 60px 0; text-align: center; background: radial-gradient(circle at top, rgba(0,210,255,0.15) 0%, transparent 60%); }
-    .hero h1 { font-size: 46px; font-weight: 900; line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.5px; background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero p { font-size: 20px; color: var(--texto-mutado); max-width: 850px; margin: 0 auto 40px auto; font-weight: 400; }
+    /* Hero Mais Enxuto */
+    .hero { padding: 40px 0 30px 0; text-align: center; }
+    .hero h1 { font-size: 40px; font-weight: 900; line-height: 1.1; margin-bottom: 15px; letter-spacing: -0.5px; background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 18px; color: var(--texto-mutado); max-width: 800px; margin: 0 auto 25px auto; }
 
-    .contador-social { display: inline-flex; align-items: center; gap: 10px; background: rgba(0, 210, 255, 0.05); border: 1px solid rgba(0, 210, 255, 0.2); padding: 8px 20px; border-radius: 50px; margin-bottom: 30px; font-size: 14px; font-weight: 600; color: var(--neon-azul); box-shadow: 0 0 20px rgba(0, 210, 255, 0.05); }
-    .estrelas { color: var(--neon-ouro); }
+    .contador-social { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 210, 255, 0.05); border: 1px solid rgba(0, 210, 255, 0.2); padding: 6px 15px; border-radius: 50px; margin-bottom: 20px; font-size: 13px; font-weight: 600; color: var(--neon-azul); }
 
-    .media-container { max-width: 850px; margin: 0 auto 50px auto; background: linear-gradient(145deg, #1e2942, #111726); padding: 12px; border-radius: 16px; box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 0 40px rgba(0, 210, 255, 0.15); border: 1px solid rgba(0, 210, 255, 0.25); }
-    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; background: #000; }
+    .media-container { max-width: 800px; margin: 0 auto 30px auto; background: #111726; padding: 8px; border-radius: 12px; border: 1px solid rgba(0, 210, 255, 0.2); }
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
     .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-    .btn-compra { display: inline-block; background: linear-gradient(135deg, #00ff87 0%, #60efff 100%); color: #040814; padding: 22px 55px; font-size: 22px; font-weight: 800; text-transform: uppercase; text-decoration: none; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 255, 135, 0.3); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-align: center; letter-spacing: 0.5px; }
-    .btn-compra:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 15px 40px rgba(0, 255, 135, 0.5), 0 0 20px rgba(96, 239, 255, 0.6); }
+    .btn-compra { display: inline-block; background: linear-gradient(135deg, #00ff87 0%, #60efff 100%); color: #040814; padding: 18px 40px; font-size: 20px; font-weight: 800; text-transform: uppercase; text-decoration: none; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 255, 135, 0.2); transition: 0.3s; }
+    .btn-compra:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 255, 135, 0.4); }
     
-    .secao { padding: 90px 0; position: relative; }
-    .secao-alternada { background: #0e1422; border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03); }
-    .secao-titulo { text-align: center; font-size: 34px; font-weight: 800; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 1px; }
+    .secao { padding: 40px 0; }
+    .secao-alternada { background: #0e1422; }
+    .secao-titulo { text-align: center; font-size: 30px; font-weight: 800; margin-bottom: 30px; text-transform: uppercase; }
     .secao-titulo span { background: linear-gradient(to right, var(--neon-azul), var(--neon-ouro)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-    .problema-box { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
-    .problema-item { background: rgba(231, 76, 60, 0.03); border: 1px solid rgba(231, 76, 60, 0.15); padding: 25px; border-radius: 10px; display: flex; gap: 15px; align-items: flex-start; }
-    .problema-item span:first-child { color: var(--neon-alerta); font-size: 20px; font-weight: bold; }
-    .problema-item p { font-size: 16px; color: #e2e8f0; }
+    .problema-box { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 15px; }
+    .problema-item { background: rgba(231, 76, 60, 0.03); border: 1px solid rgba(231, 76, 60, 0.1); padding: 20px; border-radius: 8px; display: flex; gap: 12px; }
+    .problema-item p { font-size: 15px; color: #e2e8f0; }
 
-    .grid-recursos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
-    .card-recurso { background: var(--bg-card); padding: 35px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.04); transition: all 0.3s; }
-    .card-recurso h3 { color: #fff; margin-bottom: 15px; font-size: 20px; font-weight: 700; }
-    .card-recurso p { color: var(--texto-mutado); font-size: 15px; }
+    .grid-recursos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+    .card-recurso { background: var(--bg-card); padding: 25px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); }
+    .card-recurso h3 { color: #fff; margin-bottom: 10px; font-size: 18px; font-weight: 700; }
+    .card-recurso p { color: var(--texto-mutado); font-size: 14px; }
 
-    .grid-depoimentos { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
-    .card-depoimento { background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%); padding: 30px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.06); }
-    .texto-depoimento { font-style: italic; color: #cbd5e1; margin-bottom: 20px; font-size: 16px; }
-    .autor-depoimento { font-weight: bold; color: var(--neon-ouro); font-size: 14px; text-transform: uppercase; }
+    .grid-depoimentos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+    .card-depoimento { background: rgba(255,255,255,0.02); padding: 25px; border-radius: 8px; }
+    .texto-depoimento { font-style: italic; color: #cbd5e1; margin-bottom: 15px; font-size: 15px; }
+    .autor-depoimento { font-weight: bold; color: var(--neon-ouro); font-size: 13px; text-transform: uppercase; }
 
-    .faq-container { max-width: 850px; margin: 0 auto; }
-    .faq-item { background: var(--bg-card); margin-bottom: 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); overflow: hidden; }
-    .faq-pergunta { padding: 22px 25px; font-weight: 700; font-size: 17px; color: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-    .faq-resposta { padding: 0 25px 22px 25px; color: var(--texto-mutado); font-size: 15px; display: none; }
+    .faq-container { max-width: 800px; margin: 0 auto; }
+    .faq-item { background: var(--bg-card); margin-bottom: 10px; border-radius: 6px; overflow: hidden; }
+    .faq-pergunta { padding: 18px 20px; font-weight: 700; font-size: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-resposta { padding: 0 20px 18px 20px; color: var(--texto-mutado); font-size: 14px; display: none; }
 
-    .oferta-container { max-width: 800px; margin: 0 auto; }
-    .oferta-box { background: radial-gradient(circle at top right, #17223b 0%, #0d1322 100%); color: white; text-align: center; padding: 60px 40px; border-radius: 20px; border: 1px solid rgba(0, 210, 255, 0.25); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-    .preco-antigo { text-decoration: line-through; color: var(--neon-alerta); font-size: 22px; margin-bottom: 5px; opacity: 0.7; }
-    .preco-atual { font-size: 64px; font-weight: 900; color: var(--neon-ouro); margin-bottom: 30px; }
+    .oferta-box { background: radial-gradient(circle at top right, #17223b 0%, #0d1322 100%); text-align: center; padding: 40px 20px; border-radius: 12px; border: 1px solid rgba(0, 210, 255, 0.1); max-width: 700px; margin: 0 auto; }
+    .preco-antigo { text-decoration: line-through; color: var(--neon-alerta); font-size: 20px; margin-bottom: 5px; opacity: 0.6; }
+    .preco-atual { font-size: 50px; font-weight: 900; color: var(--neon-ouro); margin-bottom: 20px; }
+
+    footer { text-align: center; padding: 30px 20px; font-size: 12px; color: var(--texto-mutado); }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 32px; }
-      .hero p { font-size: 16px; }
-      .problema-box { grid-template-columns: 1fr; }
-      .btn-compra { width: 100%; font-size: 18px; padding: 18px 20px; }
+      .hero h1 { font-size: 28px; }
+      .btn-compra { width: 100%; padding: 15px; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="container" style="padding: 0 20px; display: flex; justify-content: center;">
+    <div class="container" style="display: flex; justify-content: center;">
       <div class="logo-box">
         <div class="logo-badge">GPS</div>
         <div class="logo-texto" id="txtLogoSub">Business Intelligence</div>
@@ -95,8 +93,8 @@
         <span class="estrelas">★★★★★</span>
         <span>Sistema Financeiro Mais Bem Avaliado Sem Mensalidades</span>
       </div>
-      <h1 id="txtTitulo">Carregando engenharia de vendas...</h1>
-      <p id="txtSubtitulo">Carregando infraestrutura corporativa...</p>
+      <h1 id="txtTitulo">Carregando...</h1>
+      <p id="txtSubtitulo">Carregando...</p>
       
       <div class="media-container">
         <div class="video-wrapper">
@@ -136,26 +134,22 @@
     </div>
   </section>
 
-  <section class="secao" style="padding-bottom: 100px;">
+  <section class="secao">
     <div class="container oferta-container">
       <div class="oferta-box">
-        <h2 style="font-size: 28px; text-transform: uppercase; margin-bottom: 12px; font-weight:900;">Acesso Vitalício Imediato</h2>
-        <p style="color: var(--texto-mutado); font-size: 16px; margin-bottom: 30px;">Sem assinaturas. Sem mensalidades. Acesso total e imediato.</p>
-        <p class="preco-antigo" id="txtPrecoAntigo">R$ 0,00</p>
-        <p class="preco-atual" id="txtPrecoAtual">R$ 0,00</p>
-        <div style="padding: 0 10px;">
-          <a href="#" class="btn-compra btn-link-global" style="background: linear-gradient(135deg, var(--neon-ouro) 0%, #f39c12 100%); color: #000;">Comprar o GPS Business Agora</a>
-        </div>
-        <p style="font-size: 13px; color: var(--texto-mutado); margin-top: 25px;">Liberação automatizada por e-mail após processamento seguro pela Kiwify.</p>
+        <h2 style="font-size: 24px; margin-bottom: 10px; font-weight:900;">Acesso Vitalício Imediato</h2>
+        <p style="color: var(--texto-mutado); font-size: 15px; margin-bottom: 20px;">Sem assinaturas. Sem mensalidades.</p>
+        <p class="preco-antigo" id="txtPrecoAntigo"></p>
+        <p class="preco-atual" id="txtPrecoAtual"></p>
+        <a href="#" class="btn-compra btn-link-global" style="background: linear-gradient(135deg, var(--neon-ouro) 0%, #f39c12 100%); color: #000;">Comprar o GPS Business Agora</a>
+        <p style="font-size: 12px; color: var(--texto-mutado); margin-top: 15px;">Liberação automatizada pela Kiwify.</p>
       </div>
     </div>
   </section>
 
   <footer>
-    <div style="text-align: center; padding: 20px;">
-      Desenvolvido por <strong>Eng. Especialista Carlos Matheus Nobre</strong> | Instagram: <a href="https://instagram.com/carlosmsnobre" target="_blank" style="color:var(--neon-ouro); text-decoration:none;">@carlosmsnobre</a>
-      <span style="display:block; margin-top:12px; opacity:0.4; font-size:12px;">© 2026 Nobre Sistemas. Todos os direitos reservados.</span>
-    </div>
+    <p>Desenvolvido por <strong>Eng. Especialista Carlos Matheus Nobre</strong></p>
+    <p style="margin-top:5px;">© 2026 Nobre Sistemas. Todos os direitos reservados.</p>
   </footer>
 
   <script>
@@ -163,38 +157,32 @@
       nomeSistema: "Business Intelligence",
       tituloCapa: "O Fim das Planilhas Amadoras: Blinde o Caixa da Sua Empresa Hoje",
       subtituloCapa: "Tenha a inteligência de um software de multinacional rodando direto no seu Google Drive. Controle entradas, projete despesas em qualquer prazo e acabe com as surpresas financeiras. Previsibilidade total, sem taxas recorrentes.",
-      
       linkDestino: "https://pay.kiwify.com.br/bS4Ml5b", 
-      
       precoDe: "R$ 197,00",
       precoPor: "R$ 59,90",
-
       problemas: [
         "Ver faturamento alto entrar no caixa e desaparecer ao longo do mês sem deixar rastro de lucro real.",
         "Ausência completa de previsibilidade (não saber se o caixa estará no azul ou vermelho daqui a meses).",
         "Retirar dinheiro da empresa de forma desordenada, misturando Pro-labore pessoal com custos operacionais.",
         "Desconhecer a margem real de lucro líquido de cada contrato fechado ou projeto executado."
       ],
-
       funcionalidades: [
-        { t: "Separação Automática por Potes", d: "Chega de misturar o dinheiro da empresa com o seu. O sistema organiza seu faturamento automaticamente, garantindo que o seu pró-labore, custos e impostos fiquem separados do seu lucro real." },
-        { t: "Visão Real do Lucro", d: "Nada de cálculos confusos. O sistema mostra, preto no branco, qual é a sua margem de lucro líquido em tempo real. Você olha e sabe exatamente como a empresa está indo." },
-        { t: "Projeção Financeira sem Limites", d: "Lance parcelas de qualquer tamanho ou duração. O sistema projeta o impacto no seu caixa pelo tempo que for necessário. Tenha uma visão clara do horizonte financeiro da empresa, sem travas." },
-        { t: "Controle Absoluto de Cartões", d: "Centralize tudo. Veja a fatura do mês atual e o quanto das suas vendas futuras já estão comprometidas com os gastos parcelados. Sem sustos no fim do mês." },
-        { t: "Baixa Financeira em 1 Clique", d: "Sua planilha deve ser simples. Transforme previsões de pagamentos e recebimentos em saldo real na sua conta com um clique. Controle tudo de forma direta." },
-        { t: "Gestão Inteligente de Recebimentos", d: "Saiba exatamente quanto de dinheiro novo entra todo mês. Controle seus contratos e vendas parceladas para garantir que nunca falte caixa para as operações." }
+        { t: "Separação Automática por Potes", d: "O sistema organiza seu faturamento automaticamente, garantindo que o seu pró-labore, custos e impostos fiquem separados do seu lucro real." },
+        { t: "Visão Real do Lucro", d: "O sistema mostra, preto no branco, qual é a sua margem de lucro líquido em tempo real. Você olha e sabe exatamente como a empresa está indo." },
+        { t: "Projeção Financeira sem Limites", d: "Lance parcelas de qualquer tamanho ou duração. O sistema projeta o impacto no seu caixa pelo tempo que for necessário. Tenha visão clara, sem travas." },
+        { t: "Controle Absoluto de Cartões", d: "Veja a fatura do mês atual e o quanto das suas vendas futuras já estão comprometidas com gastos parcelados." },
+        { t: "Baixa Financeira em 1 Clique", d: "Transforme previsões em saldo real na sua conta com um clique. Controle tudo de forma direta." },
+        { t: "Gestão Inteligente de Recebimentos", d: "Saiba exatamente quanto de dinheiro novo entra todo mês. Controle seus contratos e vendas parceladas." }
       ],
-
       depoimentos: [
         { texto: "Antes do GPS Business, eu misturava totalmente os recebimentos da empresa com minhas contas pessoais. Através da ferramenta, organizei os recebimentos do meu CNPJ, passei a planejar melhor e agora tenho a noção exata do meu lucro neste mês e nos próximos.", autor: "Leonardo — Engenheiro Mecânico" },
         { texto: "Minha maior dificuldade era saber como ficaria o caixa com as vendas e compras parceladas. O sistema me permitiu organizar todas as faturas do cartão de crédito de forma simples. Agora, eu sei exatamente o peso de cada parcela no fluxo de caixa dos meses seguintes.", autor: "Maurício — Vendedor de Móveis" }
       ],
-
       faq: [
-        { p: "O GPS Business é só uma planilha de Excel?", r: "Não. É um sistema de gestão completo construído no Google Sheets. Ele utiliza automações avançadas em Google Apps Script para fazer o trabalho pesado que uma planilha comum não faz. Você tem a segurança do Google Drive com a inteligência de um software pago." },
-        { p: "Preciso pagar mensalidade ou assinatura?", r: "Jamais. O acesso é vitalício. Você paga uma única vez e o sistema é seu para sempre, sem cobranças recorrentes." },
-        { p: "E se eu não souber usar Excel?", r: "O GPS Business foi desenhado para quem não quer perder tempo com fórmulas. A interface é intuitiva, com botões e campos claros. Você só insere os dados e o sistema entrega os resultados visuais." },
-        { p: "Como funciona a compra e o suporte?", r: "A venda é processada pela Kiwify, uma das maiores plataformas de pagamentos do Brasil, garantindo total segurança. Após a compra, você recebe o acesso à Área de Membros com o sistema e vídeos tutoriais explicativos. Qualquer dúvida técnica, nossa equipe de suporte está pronta para te atender." }
+        { p: "O GPS Business é só uma planilha de Excel?", r: "Não. É um sistema de gestão completo construído no Google Sheets. Ele utiliza automações avançadas em Google Apps Script para fazer o trabalho pesado. Você tem a segurança do Google Drive com inteligência de software pago." },
+        { p: "Preciso pagar mensalidade ou assinatura?", r: "Jamais. O acesso é vitalício. Você paga uma única vez e o sistema é seu para sempre." },
+        { p: "E se eu não souber usar Excel?", r: "A interface é intuitiva, com botões e campos claros. Você só insere os dados e o sistema entrega os resultados visuais." },
+        { p: "Como funciona a compra e o suporte?", r: "A venda é processada pela Kiwify, com total segurança. Após a compra, você recebe o acesso à Área de Membros com o sistema e vídeos tutoriais. Nossa equipe de suporte está pronta para te atender." }
       ]
     };
 
@@ -204,29 +192,24 @@
       document.getElementById('txtSubtitulo').innerText = CONFIG_SITE.subtituloCapa;
       document.getElementById('txtPrecoAntigo').innerText = CONFIG_SITE.precoDe;
       document.getElementById('txtPrecoAtual').innerText = CONFIG_SITE.precoPor;
-      
       document.querySelectorAll('.btn-link-global').forEach(el => el.href = CONFIG_SITE.linkDestino);
 
       const boxProblemas = document.getElementById('containerProblemas');
-      boxProblemas.innerHTML = '';
       CONFIG_SITE.problemas.forEach(prob => {
         boxProblemas.innerHTML += `<div class="problema-item"><span>✕</span><p>${prob}</p></div>`;
       });
 
       const boxRecursos = document.getElementById('containerRecursos');
-      boxRecursos.innerHTML = '';
       CONFIG_SITE.funcionalidades.forEach(func => {
         boxRecursos.innerHTML += `<div class="card-recurso"><h3>${func.t}</h3><p>${func.d}</p></div>`;
       });
 
       const boxDepoimentos = document.getElementById('containerDepoimentos');
-      boxDepoimentos.innerHTML = '';
       CONFIG_SITE.depoimentos.forEach(dep => {
         boxDepoimentos.innerHTML += `<div class="card-depoimento"><p class="texto-depoimento">"${dep.texto}"</p><div class="autor-depoimento">${dep.autor}</div></div>`;
       });
 
       const boxFAQ = document.getElementById('containerFAQ');
-      boxFAQ.innerHTML = '';
       CONFIG_SITE.faq.forEach(item => {
         boxFAQ.innerHTML += `
           <div class="faq-item">
