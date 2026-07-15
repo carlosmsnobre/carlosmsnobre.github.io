@@ -179,15 +179,15 @@
       funcionalidades: [
         { t: "Separação Automática por Potes", d: "Chega de misturar o dinheiro da empresa com o seu. O sistema organiza seu faturamento automaticamente, garantindo que o seu pró-labore, custos e impostos fiquem separados do seu lucro real." },
         { t: "Visão Real do Lucro", d: "Nada de cálculos confusos. O sistema mostra, preto no branco, qual é a sua margem de lucro líquido em tempo real. Você olha e sabe exatamente como a empresa está indo." },
-        { t: "Projeção Financeira Infinita", d: "Lance parcelas de 10, 20 ou 30 meses. O sistema projeta o impacto no seu caixa pelo tempo que for necessário. Você tem uma visão clara do horizonte financeiro da empresa, sem travas." },
+        { t: "Projeção Financeira sem Limites", d: "Lance parcelas de qualquer tamanho ou duração. O sistema projeta o impacto no seu caixa pelo tempo que for necessário. Tenha uma visão clara do horizonte financeiro da empresa, sem travas." },
         { t: "Controle Absoluto de Cartões", d: "Centralize tudo. Veja a fatura do mês atual e o quanto das suas vendas futuras já estão comprometidas com os gastos parcelados. Sem sustos no fim do mês." },
-        { t: "Baixa Financeira em 1 Clique", d: "Sua planilha deve ser simples. Transforme previsões em dinheiro real com um clique. Controle tudo o que entra e sai de forma direta, sem complicar sua rotina." },
+        { t: "Baixa Financeira em 1 Clique", d: "Sua planilha deve ser simples. Transforme previsões de pagamentos e recebimentos em saldo real na sua conta com um clique. Controle tudo de forma direta." },
         { t: "Gestão Inteligente de Recebimentos", d: "Saiba exatamente quanto de dinheiro novo entra todo mês. Controle seus contratos e vendas parceladas para garantir que nunca falte caixa para as operações." }
       ],
 
       depoimentos: [
-        { texto: "O módulo corporativo me trouxe a clareza exata sobre a margem de sobra dos meus projetos. Tomo decisões em minutos, baseado em dados.", autor: "Engenharia de Estruturas & Gestão de Projetos" },
-        { texto: "A projeção predictiva eliminou o medo do futuro. Consigo prever o fluxo de caixa meses à frente com precisão total.", autor: "Diretoria Executiva — Soluções Corporativas" }
+        { texto: "Antes do GPS Business, eu misturava totalmente os recebimentos da empresa com minhas contas pessoais. Através da ferramenta, organizei os recebimentos do meu CNPJ, passei a planejar melhor e agora tenho a noção exata do meu lucro neste mês e nos próximos.", autor: "Leonardo — Engenheiro Mecânico" },
+        { texto: "Minha maior dificuldade era saber como ficaria o caixa com as vendas e compras parceladas. O sistema me permitiu organizar todas as faturas do cartão de crédito de forma simples. Agora, eu sei exatamente o peso de cada parcela no fluxo de caixa dos meses seguintes.", autor: "Maurício — Vendedor de Móveis" }
       ],
 
       faq: [
@@ -223,7 +223,7 @@
       const boxDepoimentos = document.getElementById('containerDepoimentos');
       boxDepoimentos.innerHTML = '';
       CONFIG_SITE.depoimentos.forEach(dep => {
-        boxDepoimentos.innerHTML += `<div class="card-depoimento"><p class="texto-depoimento">"${dep.texto}"</p><div class="autor-depoimento"><span>✦</span><span>${dep.autor}</span></div></div>`;
+        boxDepoimentos.innerHTML += `<div class="card-depoimento"><p class="texto-depoimento">"${dep.texto}"</p><div class="autor-depoimento">${dep.autor}</div></div>`;
       });
 
       const boxFAQ = document.getElementById('containerFAQ');
